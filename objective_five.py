@@ -33,16 +33,12 @@ df["School_Type_Grouped"] = df["School Management"].map(management_map)
 
 infra_comparison = df.groupby("School_Type_Grouped")[["Functional Drinking Water","Functional Electricity","Functional Toilet Facility","Furniture","Handwash","Water Purifier"
 ]].sum().T
-
 infra_comparison.plot(kind="bar")
 plt.title("Infrastructure Facilities: Government vs Private Schools")
 plt.ylabel("Number of Schools with Functional Facility")
 plt.xlabel("Infrastructure Type")
 plt.xticks(rotation=45)
 plt.legend(title="School Type")
-plt.tight_layout()
-plt.show()
-
 
 
 

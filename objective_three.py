@@ -36,37 +36,43 @@ df["School_Type_Grouped"] = df["School Management"].map(management_map)
 df["School_Type_Grouped"]
 
 
-#2. Access to Educational Technology: Evaluating the availability of computers and internet in Indian schools across different states, school types, and management to understand digital readiness.
+#3. Access to Educational Technology: Evaluating the availability of computers and internet in Indian schools across different states, school types, and management to understand digital readiness.
 #A. Computer
 df_B = df[df["Location"] != "All India"]
 computer = df_B.groupby("Location")[["Computer Available", "Total No. of Schools"]].sum()
 computer
-
 computer["Computers Available (in %)"] = (computer["Computer Available"]/computer["Total No. of Schools"])*100
 computer["Computers Available (in %)"]
-
-plt.figure(figsize=(18, 24))
-sns.heatmap(computer[["Computers Available (in %)"]], annot=True, cmap="coolwarm", linewidths=1.5)
-plt.title("Heatmap of Computer Availability in Schools by State")
-df_B = df[df["Location"] != "All India"]
+plt.figure(figsize=(18, 10))
+computer["Computers Available (in %)"].plot(kind='bar', color="#8e468a")
+plt.title("Computer Availability in Schools by State")
+plt.xlabel("State")
+plt.ylabel("Computers Available (in %)")
+plt.xticks(rotation=90)
 
 #B. Internet
 internet = df_B.groupby("Location")[["Internet", "Total No. of Schools"]].sum()
 internet
 internet["Internet Available (in %)"] = (internet["Internet"]/internet["Total No. of Schools"])*100
 internet["Internet Available (in %)"]
-plt.figure(figsize=(18, 24))
-sns.heatmap(internet[["Internet Available (in %)"]], annot=True, cmap="coolwarm", linewidths=1.5)
-plt.title("Heatmap of Internet Available in Schools by State")
+plt.figure(figsize=(18, 10))
+internet["Internet Available (in %)"].plot(kind='bar', color="pink")
+plt.title("Internet Availability in Schools by State")
+plt.xlabel("State")
+plt.ylabel("Computers Available (in %)")
+plt.xticks(rotation=90)
 
 #C. Government Vs Private
 tech_comparison = df.groupby("School_Type_Grouped")[["Computer Available", "Internet"]].sum().T
 tech_comparison
-tech_comparison.loc["Computer Available"].plot(
-    kind="pie", 
-    autopct='%1.1f%%', 
-    colors=["#34a154", "#3831a7"], 
-    figsize=(5,5),
-    title="Distribution of Computer Access: Government vs Private Schools"
-)
+tech_cols = ["Computer Available", "Internet"]
+tech_comparison = df.groupby("School_Type_Grouped")[tech_cols].sum().T
+tech_comparison.plot(kind="bar", color=["#8e468a", "pink"])
+plt.title("Access to Computers and Internet: Government vs Private Schools")
+plt.ylabel("Number of Schools with Access")
+plt.xlabel("Technology Type")
+plt.xticks(rotation=0)
+plt.legend(title="School Type")
+plt.tight_layout()
+plt.show()
 

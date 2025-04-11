@@ -39,7 +39,4 @@ plt.ylabel("Number of Schools with Functional Facility")
 plt.xlabel("Infrastructure Type")
 plt.xticks(rotation=45)
 plt.legend(title="School Type")
-
-
-
-
+plt.tight_layout()

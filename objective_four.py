@@ -31,25 +31,10 @@ df["School_Type_Grouped"] = df["School Management"].map(management_map)
 
 #4. Infrastructure Analysis in Rural Areas: Focusing on the availability of school infrastructure in rural regions to uncover challenges faced in non-urban areas and support data-driven educational interventions.
 
-rural_infra = df.groupby("Rural/Urban")[[
-    "Functional Drinking Water",
-    "Functional Electricity",
-    "Functional Toilet Facility",
-    "Furniture",
-    "Handwash",
-    "Water Purifier"
-]].sum().T
-rural_infra.plot(kind="bar", color=["#8e468a", "#f577e4"])
+rural_infra = df.groupby("Rural/Urban")[["Functional Drinking Water", "Functional Electricity", "Functional Toilet Facility", "Furniture", "Handwash", "Water Purifier"]].sum().T
+rural_infra.plot(kind="bar", color=["#f1d2cd", "#e15e5e"])
 plt.title("Infrastructure Comparison: Rural vs Urban Schools")
 plt.ylabel("Number of Schools with Facility")
 plt.xlabel("Infrastructure Type")
 plt.xticks(rotation=45)
 plt.legend(title="Location")
-plt.tight_layout()
-plt.show()
-
-
-
-
-
-df["School_Type_Grouped"]

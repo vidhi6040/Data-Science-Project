@@ -39,9 +39,9 @@ df["School_Type_Grouped"]
 #3. Access to Educational Technology: Evaluating the availability of computers and internet in Indian schools across different states, school types, and management to understand digital readiness.
 #A. Computer
 df_B = df[df["Location"] != "All India"]
-computer = df_B.groupby("Location")[["Computer Available", "Total No. of Schools"]].sum()
+computer = df_B.groupby("Location")[["Computer Available", "Total No of Schools"]].sum()
 computer
-computer["Computers Available (in %)"] = (computer["Computer Available"]/computer["Total No. of Schools"])*100
+computer["Computers Available (in %)"] = (computer["Computer Available"]/computer["Total No of Schools"])*100
 computer["Computers Available (in %)"]
 plt.figure(figsize=(18, 10))
 computer["Computers Available (in %)"].plot(kind='bar', color="#8e468a")
@@ -51,9 +51,9 @@ plt.ylabel("Computers Available (in %)")
 plt.xticks(rotation=90)
 
 #B. Internet
-internet = df_B.groupby("Location")[["Internet", "Total No. of Schools"]].sum()
+internet = df_B.groupby("Location")[["Internet", "Total No of Schools"]].sum()
 internet
-internet["Internet Available (in %)"] = (internet["Internet"]/internet["Total No. of Schools"])*100
+internet["Internet Available (in %)"] = (internet["Internet"]/internet["Total No of Schools"])*100
 internet["Internet Available (in %)"]
 plt.figure(figsize=(18, 10))
 internet["Internet Available (in %)"].plot(kind='bar', color="pink")

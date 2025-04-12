@@ -13,7 +13,7 @@ print(df)
 
 #2. Gender Gap in Schools: Investigating gender disparities in education, including number of boys schools, number of girls schools, and number of co-ed schools.
 df = df[df["Location"] != "All India"]
-gender_gap = df.groupby(["Location", "School Type"])["Total No. of Schools"].sum().unstack(fill_value=0)
+gender_gap = df.groupby(["Location", "School Type"])["Total No of Schools"].sum().unstack(fill_value=0)
 gender_gap
 
 #A. Boys

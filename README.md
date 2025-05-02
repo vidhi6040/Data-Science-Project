@@ -1,5 +1,5 @@
 # Data-Science-Project
-
+ 
 Problem Statement:
 Analyze the availability of basic infrastructure and facilities in schools across different state and management types in INDIA.
 

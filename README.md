@@ -1,7 +1,7 @@
 # Data-Science-Project
 
 Problem Statement:
-Analyze the availability of basic infrastructure and facilities in schools across different state and management types in INDIA.
+Analye the availability of basic infrastructure and facilities in schools across different state and management types in INDA.
 
 Objectives:
 1.	Impact of Private vs. Government Schools on Students: Comparing the infrastructure provided by private and government schools to understand its potential influence on students’ learning environment and development.
